@@ -41,6 +41,6 @@
 
 | Methods | Endpoint | Description | Authentication  |
 | --- | --- | --- | --- |
-| 'GET' | '/api/dashboard' | List Dashboard | | Yes |
+| 'GET' | '/api/dashboard' | List Dashboard | Yes |
 
 
