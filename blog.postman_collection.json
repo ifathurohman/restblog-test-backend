@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "f82da33e-974d-47c5-af64-3bddb1282130",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13850295"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "ilham",
+									"type": "text"
+								},
+								{
+									"key": "Username",
+									"value": "ilham",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODU2Mn0._zZl2buIBr4-lbQsRwNSJHtb4PxQqtWZ2nNBfniFWUA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "ilham",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "Confirm_password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/reset_password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "ilham",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Get Article",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODcxOH0.c1aeJKtml6mVaMAekvLiXxeHHB9hfS34zUj9ITZyhRo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/article/get?Id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"article",
+								"get"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODcxOH0.c1aeJKtml6mVaMAekvLiXxeHHB9hfS34zUj9ITZyhRo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Category_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "Title",
+									"value": "Lorem Ipsum 3",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+									"type": "text"
+								},
+								{
+									"key": "Post_image",
+									"type": "file",
+									"src": "/C:/Users/Asus/Pictures/mutasi rekening pln prepaid.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/article/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"article",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Article",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Title",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/article/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"article",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Article",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/article/3/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"article",
+								"3",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODcxOH0.c1aeJKtml6mVaMAekvLiXxeHHB9hfS34zUj9ITZyhRo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/category/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"category",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/category/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"category",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "aseasdsad",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/category/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"category",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/category/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"category",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get Comments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/comments/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"comments",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Post_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "asemmm",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "hasgdhasdgsahjdsajd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/comments/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"comments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comments",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comments",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/ci-restserver-master/api/comments/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ci-restserver-master",
+								"api",
+								"comments",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Dashboard",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
