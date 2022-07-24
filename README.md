@@ -41,7 +41,6 @@
 
 | Methods | Endpoint | Description | Authentication  |
 | --- | --- | --- | --- |
-| 'GET' | '/api/dashboard' | List Dashboard |
+| 'GET' | '/api/dashboard' | List Dashboard | | Yes |
 
 
-[result1-screenshot]: images/screencapture-localhost-ci-restserver-master-api-kendaraan-2022-04-13-10_00_46.png
