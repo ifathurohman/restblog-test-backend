@@ -75,12 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'rest_blog',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	'hostname' => 'ec2-52-54-212-232.compute-1.amazonaws.com',
+	'username' => 'hszrwzttbmkvfl',
+	'password' => 'f3df16326d230f305604a838769c223e2768342522136476b637a7e47c8f9943',
+	'database' => 'df2g7cnlajo6pm',
+	'dbdriver' => 'postgre',
+	'dbprefix' => 'public.',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
