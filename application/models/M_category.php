@@ -7,7 +7,7 @@ class M_category extends CI_Model
         if($id === null):
             return $this->db->get("ut_categories")->result_array();
         else:
-            return $this->db->get_where('ut_categories',['Id' => $id])->result_array();
+            return $this->db->get_where('ut_categories',['id' => $id])->result_array();
         endif;
     }
 

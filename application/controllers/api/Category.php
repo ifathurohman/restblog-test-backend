@@ -24,7 +24,7 @@ class Category extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id                  = $this->get('Id'); 
+            $id                  = $this->get('id'); 
              
             if($id === null):
                  $data = $this->category->getCategory();
@@ -59,9 +59,9 @@ class Category extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $name 	        = $this->input->post("Name");
+            $name 	        = $this->input->post("name");
 
-            $ck_name        = $this->api->get_one_row("ut_categories","Name",array("Name" => $name));
+            $ck_name        = $this->api->get_one_row("ut_categories","name",array("name" => $name));
             
             if($name == ''):
                 $this->response([
@@ -76,8 +76,8 @@ class Category extends REST_Controller
             else:
                 
                 $data = array(
-                    "User_id"       => $is_valid_token['data']->id,
-                    "Name"		    => $name, 
+                    "user_id"       => $is_valid_token['data']->id,
+                    "name"		    => $name, 
                 );
 
                 $this->main->general_save("ut_categories", $data);
@@ -103,13 +103,13 @@ class Category extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id         = $this->put("Id");
-            $name       = $this->put("Name");
+            $id         = $this->put("id");
+            $name       = $this->put("name");
 
             if($id == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Id tidak boleh kosong"
+                    'message'   => "id tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             elseif($name == ''):
                 $this->response([
@@ -119,11 +119,11 @@ class Category extends REST_Controller
             else:
                 
                 $data = array(
-                    "Name"          => $name,
-                    "User_id"       => $is_valid_token['data']->id,
+                    "name"          => $name,
+                    "user_id"       => $is_valid_token['data']->id,
                 );
 
-                $this->main->general_update("ut_categories", $data, array("Id" => $id));
+                $this->main->general_update("ut_categories", $data, array("id" => $id));
 
                 $this->response([
                     'status'    => true,
@@ -155,8 +155,8 @@ class Category extends REST_Controller
             else
             {
                 $data = [
-                    'Id' => $id,
-                    'User_id' => $is_valid_token['data']->id,
+                    'id' => $id,
+                    'user_id' => $is_valid_token['data']->id,
                 ];
 
                 $output   = $this->category->delete_category($data);

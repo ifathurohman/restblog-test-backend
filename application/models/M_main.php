@@ -54,7 +54,7 @@ class M_main extends CI_Model
 
     public function general_save($table,$data){
         // $this->db->set("UserAdd",$data['Name']);
-        $this->db->set("DateAdd",date("Y-m-d H:i:s"));
+        $this->db->set("dateadd",date("Y-m-d H:i:s"));
         $this->db->insert($table,$data);
         return $this->db->insert_id();
     }

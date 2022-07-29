@@ -7,7 +7,7 @@ class M_comments extends CI_Model
         if($id === null):
             return $this->db->get("ut_comments")->result_array();
         else:
-            return $this->db->get_where('ut_comments',['Id' => $id])->result_array();
+            return $this->db->get_where('ut_comments',['id' => $id])->result_array();
         endif;
     }
 

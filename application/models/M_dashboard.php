@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_dashboard extends CI_Model {
 
 	var $table  	= 'ut_users';
-	var $column 	= array("ut_users.ID",
-                        "ut_users.Nama_personil",
-                        "ut_users.Status_pegawai",
-                        "ut_users.Nama_perusahaan"
+	var $column 	= array("ut_users.id",
+                        "ut_users.name",
+                        "ut_users.status",
+                        "ut_users.email"
                     ); 
 
 	public function __construct()
@@ -19,20 +19,18 @@ class M_dashboard extends CI_Model {
 
     private function _get_datatables_query()
 	{
-        
-        $table          = $this->table;
 		$searchx 	    = $this->input->post('Searchx');
         $is_valid_token = $this->authorization_token->validateToken();
-        $Id             = $is_valid_token['data']->id;
+        $id             = $is_valid_token['data']->id;
 
 		$this->db->select("
-            (select count(Id) from ut_comments where User_id = $Id) as total_comments,
-            (select count(Id) from ut_posts where User_id = $Id) as total_posts,
+            (select count(id) from ut_comments where user_id = $id) as total_comments,
+            (select count(id) from ut_posts where user_id = $id) as total_posts,
 		");
 
 		$this->db->from("ut_users");
-        $this->db->where("ut_users.Id", $Id);
-        $this->db->group_by("ut_users.Id");
+        $this->db->where("ut_users.id", $id);
+        $this->db->group_by("ut_users.id");
 
 
 		$i = 0;
@@ -91,12 +89,12 @@ class M_dashboard extends CI_Model {
 	public function count_all()
 	{   
         $is_valid_token = $this->authorization_token->validateToken();
-        $Id             = $is_valid_token['data']->id;
+        $id             = $is_valid_token['data']->id;
 		$this->db->from("ut_users");
-        $this->db->join("ut_categories as categories", "categories.User_id = ut_users.Id", "left");
-        $this->db->join("ut_comments as comments", "comments.User_id = ut_users.Id", "left");
-        $this->db->join("ut_posts as posts", "posts.User_id = ut_users.Id", "left");
-        $this->db->where("ut_users.Id", $Id);
+        $this->db->join("ut_categories as categories", "categories.user_id = ut_users.id", "left");
+        $this->db->join("ut_comments as comments", "comments.user_id = ut_users.id", "left");
+        $this->db->join("ut_posts as posts", "posts.user_id = ut_users.id", "left");
+        $this->db->where("ut_users.id", $id);
 		return $this->db->count_all_results();
 	}
 

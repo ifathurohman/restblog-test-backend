@@ -24,7 +24,7 @@ class Comments extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id                  = $this->get('Id'); 
+            $id                  = $this->get('id'); 
              
             if($id === null):
                  $data = $this->comments->getComments();
@@ -59,12 +59,12 @@ class Comments extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $post_id        = $this->input->post("Post_id");
-            $name 	        = $this->input->post("Name");
-            $email 	        = $this->input->post("Email");
-            $body 	        = $this->input->post("Body");
+            $post_id        = $this->input->post("post_id");
+            $name 	        = $this->input->post("name");
+            $email 	        = $this->input->post("email");
+            $body 	        = $this->input->post("body");
 
-            $ck_post        = $this->api->get_one_row("ut_posts","Id",array("Id" => $post_id));
+            $ck_post        = $this->api->get_one_row("ut_posts","id",array("id" => $post_id));
             
             if($name == ''):
                 $this->response([
@@ -79,7 +79,7 @@ class Comments extends REST_Controller
             elseif($email == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Email tidak boleh kosong"
+                    'message'   => "email tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST); 
             elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)):  
                 $this->response([
@@ -89,16 +89,16 @@ class Comments extends REST_Controller
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Body tidak boleh kosong"
+                    'message'   => "body tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);         
             else:
                 
                 $data = array(
-                    "Post_id"		=> $post_id, 
-                    "User_id"       => $is_valid_token['data']->id,
-                    "Name"		    => $name, 
-                    "Email"		    => $email, 
-                    "Body"		    => $body, 
+                    "post_id"		=> $post_id, 
+                    "user_id"       => $is_valid_token['data']->id,
+                    "name"		    => $name, 
+                    "email"		    => $email, 
+                    "body"		    => $body, 
                 );
 
                 $this->main->general_save("ut_comments", $data);
@@ -124,26 +124,26 @@ class Comments extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id 	        = $this->put("Id");
-            $body 	        = $this->put("Body");
+            $id 	        = $this->put("id");
+            $body 	        = $this->put("body");
          
             if($id == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Id tidak boleh kosong"
+                    'message'   => "id tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Body tidak boleh kosong"
+                    'message'   => "body tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
-                    "Body"          => $body,
+                    "body"          => $body,
                 );
 
-                $this->main->general_update("ut_comments", $data, array("Id" => $id));
+                $this->main->general_update("ut_comments", $data, array("id" => $id));
 
                 $this->response([
                     'status'    => true,
@@ -175,8 +175,8 @@ class Comments extends REST_Controller
             else
             {
                 $data = [
-                    'Id' => $id,
-                    'User_id' => $is_valid_token['data']->id,
+                    'id' => $id,
+                    'user_id' => $is_valid_token['data']->id,
                 ];
 
                 $output   = $this->comments->delete_comments($data);

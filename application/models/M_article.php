@@ -7,7 +7,7 @@ class M_article extends CI_Model
         if($id === null):
             return $this->db->get("ut_posts")->result_array();
         else:
-            return $this->db->get_where('ut_posts',['Id' => $id])->result_array();
+            return $this->db->get_where('ut_posts',['id' => $id])->result_array();
         endif;
     }
 

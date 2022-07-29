@@ -13,7 +13,7 @@ class Dashboard extends REST_Controller
         $this->load->model('M_dashboard', 'dashboard');
     }
 
-    public function getDashboard_post()
+    public function getDashboard_get()
     {
         header("Access-Control-Allow-Origin: *");
 

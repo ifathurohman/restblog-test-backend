@@ -24,7 +24,7 @@ class Article extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id                  = $this->get('Id'); 
+            $id                  = $this->get('id'); 
              
             if($id === null):
                  $article = $this->article->getArticle();
@@ -59,27 +59,27 @@ class Article extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $category_id    = $this->input->post("Category_id");
-            $title 	        = $this->input->post("Title");
-            $slug 	        = $this->input->post("Title");
-            $body 	        = $this->input->post("Body");
-            $Image 	        = $this->input->post("Post_image");
+            $category_id    = $this->input->post("category_id");
+            $title 	        = $this->input->post("title");
+            $slug 	        = $this->input->post("title");
+            $body 	        = $this->input->post("body");
+            $image 	        = $this->input->post("post_image");
 
-            $Image 			= $this->save_image();
+            $image 			= $this->save_image();
 
-            $ck_title       = $this->api->get_one_row("ut_posts","Title",array("Title" => $title));
-            $ck_slug        = $this->api->get_one_row("ut_posts","Slug",array("Slug" => $slug));
-            $ck_category    = $this->api->get_one_row("ut_categories","Name",array("Name" => $category_id));
+            $ck_title       = $this->api->get_one_row("ut_posts","title",array("title" => $title));
+            $ck_slug        = $this->api->get_one_row("ut_posts","slug",array("slug" => $slug));
+            $ck_category    = $this->api->get_one_row("ut_categories","id",array("id" => $category_id));
             
             if($category_id == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Category tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
-            elseif($ck_category):
+            elseif(!$ck_category):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Nama category sudah digunakan"
+                    'message'   => "Id category tidak ditemukan"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             elseif($title == ''):
                 $this->response([
@@ -94,35 +94,35 @@ class Article extends REST_Controller
             elseif($slug == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Slug tidak boleh kosong"
+                    'message'   => "slug tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             elseif($ck_slug):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Slug sudah digunakan"
+                    'message'   => "slug sudah digunakan"
                 ],REST_Controller::HTTP_BAD_REQUEST);
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Body tidak boleh kosong"
+                    'message'   => "body tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
-            elseif($Image == ''):
+            elseif($image == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Image tidak boleh kosong"
+                    'message'   => "image tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
-                    "Category_id"   => $category_id,
-                    "User_id"       => $is_valid_token['data']->id,
-                    "Title"		    => $title,
-                    "Slug"	        => $this->main->textToSlug($slug),
-                    "Body"	        => $body, 
+                    "category_id"   => $category_id,
+                    "user_id"       => $is_valid_token['data']->id,
+                    "title"		    => $title,
+                    "slug"	        => $this->main->textToslug($slug),
+                    "body"	        => $body, 
                 );
 
-                if($Image):
-                    $data['Post_image']  = $Image;
+                if($image):
+                    $data['post_image']  = $image;
                 endif;
                 $this->main->general_save("ut_posts", $data);
                 $this->response([
@@ -147,11 +147,11 @@ class Article extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
 
-            $id             = $this->put("Id");
-            $category_id    = $this->put("Category_id");
-            $title 	        = $this->put("Title");
-            $slug 	        = $this->put("Title");
-            $body 	        = $this->put("Body");
+            $id             = $this->put("id");
+            $category_id    = $this->put("category_id");
+            $title 	        = $this->put("title");
+            $slug 	        = $this->put("title");
+            $body 	        = $this->put("body");
 
             if($id == ''):
                 $this->response([
@@ -176,19 +176,19 @@ class Article extends REST_Controller
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Body tidak boleh kosong"
+                    'message'   => "body tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
-                    "Category_id"   => $category_id,
-                    "User_id"       => $is_valid_token['data']->id,
-                    "Title"		    => $title,
-                    "Slug"	        => $this->main->textToSlug($slug),
-                    "Body"	        => $body, 
+                    "category_id"   => $category_id,
+                    "user_id"       => $is_valid_token['data']->id,
+                    "title"		    => $title,
+                    "slug"	        => $this->main->textToslug($slug),
+                    "body"	        => $body, 
                 );
 
-                $this->main->general_update("ut_posts", $data, array("Id" => $id));
+                $this->main->general_update("ut_posts", $data, array("id" => $id));
 
                 $this->response([
                     'status'    => true,
@@ -220,11 +220,11 @@ class Article extends REST_Controller
             else
             {
                 $delete_article = [
-                    'Id' => $id,
-                    'User_id' => $is_valid_token['data']->id,
+                    'id' => $id,
+                    'user_id' => $is_valid_token['data']->id,
                 ];
 
-                $this->main->remove_file("ut_posts","Post_image",array("Id" => $id,"User_id" => $is_valid_token['data']->id));
+                $this->main->remove_file("ut_posts","post_image",array("id" => $id,"user_id" => $is_valid_token['data']->id));
                 $output   = $this->article->delete_article($delete_article);
                 if ($output > 0 AND !empty($output))
                 {
@@ -250,8 +250,8 @@ class Article extends REST_Controller
 
     private function save_image(){
 
-        $slug 	                    = $this->input->post("Title");
-        $nmfile                     = 'test-backend'."-".$this->main->textToSlug($slug);
+        $slug 	                    = $this->input->post("title");
+        $nmfile                     = 'test-backend'."-".$this->main->textToslug($slug);
 	    $config['upload_path']      = './img/article'; //path folder 
 	    $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp|PNG|JPG'; //type yang dapat diakses bisa anda sesuaikan 
 	    $config['max_size']         = '99999'; //maksimum besar file 2M 
@@ -259,7 +259,7 @@ class Article extends REST_Controller
 	    $config['max_height']       = '99999'; //tinggi maksimu 768 px 
 	    $config['file_name']        = $nmfile; //nama yang terupload nantinya 
 	    $this->upload->initialize($config); 
-	    $upload                     = $this->upload->do_upload('Post_image');
+	    $upload                     = $this->upload->do_upload('post_image');
 	    $gbr                        = $this->upload->data();
         
         $this->load->library('Authorization_Token');
@@ -271,12 +271,12 @@ class Article extends REST_Controller
             if($upload):
                 $image 	= "img/article/".$gbr['file_name'];
                 $data   = array(
-                    "Post_image" => $image
+                    "post_image" => $image
                 );
 
-                $ck_image    = $this->api->get_one_row("ut_posts","Post_image",array("User_id" => $is_valid_token['data']->id, "Title" => $slug));
+                $ck_image    = $this->api->get_one_row("ut_posts","post_image",array("user_id" => $is_valid_token['data']->id, "title" => $slug));
                 if($ck_image == $data):
-                    $this->main->remove_file("ut_posts","Post_image",array("User_id" => $is_valid_token['data']->id));
+                    $this->main->remove_file("ut_posts","post_image",array("user_id" => $is_valid_token['data']->id));
                 endif;
 
                 return $image;

@@ -17,42 +17,44 @@ class Users extends REST_Controller
     {
         header("Access-Control-Allow-Origin: *");
 
-		$ID 			= $this->input->post("ID");
-		$Name 			= $this->input->post("Name");
-		$Username 	    = $this->input->post("Username");
-		$Password 	    = $this->input->post("Password");
-		$Email 	        = $this->input->post("Email");
+		$id 			= $this->input->post("id");
+		$name 			= $this->input->post("name");
+		$username 	    = $this->input->post("username");
+		$password 	    = $this->input->post("password");
+		$email 	        = $this->input->post("email");
           
         $data = array(
-			"Name"		 => $Name,
-			"Username"	 => $Username,
-			"Email"	     => $Email,
+			"name"		 => $name,
+			"useradd"    => $name,
+			"username"	 => $username,
+			"email"	     => $email,
+			"status"	 => 0,
 		);
 
-        $ck_username = $this->api->get_one_row("ut_users","Username",array("Username" => $Username));
-        $ck_email    = $this->api->get_one_row("ut_users","Email",array("Email" => $Email));
+        $ck_username = $this->api->get_one_row("ut_users","username",array("username" => $username));
+        $ck_email    = $this->api->get_one_row("ut_users","email",array("email" => $email));
 
-        if($Username == ''):
+        if($username == ''):
             $this->response([
                 'status'    => false,
-                'message'   => "Username tidak boleh kosong"
+                'message'   => "username tidak boleh kosong"
             ],REST_Controller::HTTP_BAD_REQUEST);      
         elseif($ck_username):
             $this->response([
                 'status'    => false,
-                'message'   => "Username sudah digunakan"
+                'message'   => "username sudah digunakan"
             ],REST_Controller::HTTP_BAD_REQUEST);
-        elseif($Password == ''):
+        elseif($password == ''):
             $this->response([
                 'status'    => false,
-                'message'   => "Password tidak boleh kosong"
+                'message'   => "password tidak boleh kosong"
             ],REST_Controller::HTTP_BAD_REQUEST);   
-        elseif($Email == ''):
+        elseif($email == ''):
             $this->response([
                 'status'    => false,
-                'message'   => "Email tidak boleh kosong"
+                'message'   => "email tidak boleh kosong"
             ],REST_Controller::HTTP_BAD_REQUEST);   
-        elseif(!filter_var($Email, FILTER_VALIDATE_EMAIL)):  
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)):  
             $this->response([
                 'status'    => false,
                 'message'   => "Gunakan email yang valid"
@@ -60,11 +62,11 @@ class Users extends REST_Controller
         elseif($ck_email):
             $this->response([
                 'status'    => false,
-                'message'   => "Email sudah digunakan"
+                'message'   => "email sudah digunakan"
             ],REST_Controller::HTTP_BAD_REQUEST);
         else:
-            $Password         = $this->main->create_password($Password);
-            $data['Password'] = $Password;
+            $password         = $this->main->create_password($password);
+            $data['password'] = $password;
             $this->main->general_save("ut_users", $data);
             $this->response([
                 'status'    => true,
@@ -79,40 +81,40 @@ class Users extends REST_Controller
     {
         header("Access-Control-Allow-Origin: *");
 
-		$Username 	    = $this->input->post("Username");
-		$Password 	    = $this->input->post("Password");
+		$username 	    = $this->input->post("username");
+		$password 	    = $this->input->post("password");
         
-        $users 	        = $this->users->getUsers($Username);
+        $users 	        = $this->users->getUsers($username);
 
         $data = array(
-			"Username"	 => $Username,
-			"Password"	 => $Password,
+			"username"	 => $username,
+			"password"	 => $password,
 		);
 
-        $Password    = $this->main->create_password($Password);
+        $password    = $this->main->create_password($password);
 
-        $ck_username = $this->api->get_one_row("ut_users","Username",array("Username" => $Username));
-        $ck_password = $this->api->get_one_row("ut_users","Password",array("Password" => $Password));
+        $ck_username = $this->api->get_one_row("ut_users","username",array("username" => $username));
+        $ck_password = $this->api->get_one_row("ut_users","password",array("password" => $password));
 
-        if($Username == ''):
+        if($username == ''):
             $this->response([
                 'status'    => false,
-                'message'   => "Username tidak boleh kosong"
+                'message'   => "username tidak boleh kosong"
             ],REST_Controller::HTTP_BAD_REQUEST);
         elseif(!$ck_username):
             $this->response([
                 'status'    => false,
-                'message'   => "Username tidak ditemukan"
+                'message'   => "username tidak ditemukan"
             ],REST_Controller::HTTP_BAD_REQUEST);  
-        elseif($Password == ''):
+        elseif($password == ''):
             $this->response([
                 'status'    => false,
-                'message'   => "Password tidak boleh kosong"
+                'message'   => "password tidak boleh kosong"
             ],REST_Controller::HTTP_BAD_REQUEST);
         elseif(!$ck_password):
             $this->response([
                 'status'    => false,
-                'message'   => "Password tidak sesuai"
+                'message'   => "password tidak sesuai"
             ],REST_Controller::HTTP_BAD_REQUEST);  
         else:
 
@@ -148,7 +150,7 @@ class Users extends REST_Controller
         
     }
 
-    public function resetPassword_post()
+    public function resetpassword_post()
     {
         header("Access-Control-Allow-Origin: *");
         
@@ -158,41 +160,40 @@ class Users extends REST_Controller
 
         if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE):
     
-            $Username           = $this->post("Username");
-            $Password           = $this->post("Password");
-            $ConfirmPassword    = $this->post("Confirm_password");
+            $username           = $this->post("username");
+            $password           = $this->post("password");
+            $confirmpassword    = $this->post("confirm_password");
 
-            if($Username == ''):
+            if($username == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Username tidak boleh kosong"
+                    'message'   => "username tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);         
-            elseif($Password == ''):
+            elseif($password == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Password tidak boleh kosong"
+                    'message'   => "password tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
-            elseif($ConfirmPassword == ''):
+            elseif($confirmpassword == ''):
                 $this->response([
                     'status'    => false,
-                    'message'   => "Confirm Password tidak boleh kosong"
+                    'message'   => "Confirm password tidak boleh kosong"
                 ],REST_Controller::HTTP_BAD_REQUEST);      
-            elseif($Password != $ConfirmPassword):  
+            elseif($password != $confirmpassword):  
                 $this->response([
                     'status'    => false,
-                    'message'   => "Password tidak sesuai"
+                    'message'   => "password tidak sesuai"
                 ],REST_Controller::HTTP_BAD_REQUEST);
             else:
 
-                $Password         = $this->main->create_password($Password);
-                $ConfirmPassword  = $this->main->create_password($ConfirmPassword);
-                $data['Password'] = $Password;
-                $this->main->general_update("ut_users", $data, array("Username" => $Username));
+                $password         = $this->main->create_password($password);
+                $confirmpassword  = $this->main->create_password($confirmpassword);
+                $data['password'] = $password;
+                $this->main->general_update("ut_users", $data, array("username" => $username));
 
                 $this->response([
                     'status'    => true,
                     'message'   => "data berhasil diubah",
-                    'data'      => $data
                 ],REST_Controller::HTTP_OK);
             endif;
         else:
