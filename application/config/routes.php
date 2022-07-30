@@ -53,7 +53,24 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['api/register']                  		= 'api/users/register';
+$route['api/login']                     		= 'api/users/login';
+$route['api/reset_password']            		= 'api/users/resetPassword';
 
-$route['api/register']                  = 'api/users/register';
-$route['api/login']                     = 'api/users/login';
-$route['api/reset_password']            = 'api/users/resetPassword';
+$route['api/article/get']                       = 'api/article/getArticle';
+$route['api/article/create']                    = 'api/article/createdArticle';
+$route['api/article/update']["put"]             = 'api/article/updatedArticle';
+$route['api/article/(:num)/delete']["DELETE"]   = 'api/article/deleteArticle/$1';
+
+$route['api/category/get']                      = 'api/category/getCategory';
+$route['api/category/create']                   = 'api/category/createdCategory';
+$route['api/category/update']["put"]            = 'api/category/updatedCategory';
+$route['api/category/(:num)/delete']["DELETE"]  = 'api/category/deleteCategory/$1';
+
+$route['api/comments/get']                      = 'api/comments/getComments';
+$route['api/comments/create']                   = 'api/comments/createdComments';
+$route['api/comments/update']["put"]            = 'api/comments/updatedComments';
+$route['api/comments/(:num)/delete']["DELETE"]  = 'api/comments/deleteComments/$1';
+
+$route['api/dashboard']                         = 'api/dashboard/getDashboard';
+
