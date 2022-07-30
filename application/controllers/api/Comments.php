@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require APPPATH . '/libraries/REST_Controller.php';
+use chriskacerguis\RestServer\RestController;
 
-class Comments extends REST_Controller
+class Comments extends RestController
 {
     public function __construct()
     {
@@ -34,16 +34,16 @@ class Comments extends REST_Controller
                 $this->response([
                     'status'    => true,
                     'data'      => $data
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             else:
                  $this->response([
                     'status'    => true,
                     'message'   => "data tidak ditemukan"
-                ],REST_Controller::HTTP_NOT_FOUND);
+                ],RestController::HTTP_NOT_FOUND);
             endif;         
 
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
     }
 
@@ -68,27 +68,27 @@ class Comments extends REST_Controller
                 $this->response([
                     'status'    => false,
                     'message'   => "Nama tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif(!$ck_post):
                 $this->response([
                     'status'    => false,
                     'message'   => "Posts id tidak ditemukan"
-                ],REST_Controller::HTTP_BAD_REQUEST);  
+                ],RestController::HTTP_BAD_REQUEST);  
             elseif($email == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "email tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST); 
+                ],RestController::HTTP_BAD_REQUEST); 
             elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)):  
                 $this->response([
                     'status'    => false,
                     'message'   => "Gunakan email yang valid"
-                ],REST_Controller::HTTP_BAD_REQUEST);        
+                ],RestController::HTTP_BAD_REQUEST);        
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "body tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);         
+                ],RestController::HTTP_BAD_REQUEST);         
             else:
                 
                 $data = array(
@@ -104,10 +104,10 @@ class Comments extends REST_Controller
                     'status'    => true,
                     'message'   => "data berhasil ditambahkan",
                     'data'      => $data
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             endif;
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
 
     }
@@ -129,12 +129,12 @@ class Comments extends REST_Controller
                 $this->response([
                     'status'    => false,
                     'message'   => "id tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "body tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
@@ -147,11 +147,11 @@ class Comments extends REST_Controller
                     'status'    => true,
                     'message'   => "data berhasil diubah",
                     'data'      => $data
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             endif;
 
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
     }
 
@@ -168,7 +168,7 @@ class Comments extends REST_Controller
             
             if (empty($id) AND !is_numeric($id))
             {
-                $this->response(['status' => FALSE, 'message' => 'data id tidak ditemukan' ], REST_Controller::HTTP_NOT_FOUND);
+                $this->response(['status' => FALSE, 'message' => 'data id tidak ditemukan' ], RestController::HTTP_NOT_FOUND);
             }
             else
             {
@@ -184,19 +184,19 @@ class Comments extends REST_Controller
                         'status'    => true,
                         'message'   => "data berhasil dihapus"
                     ];
-                    $this->response($message, REST_Controller::HTTP_OK);
+                    $this->response($message, RestController::HTTP_OK);
                 } else
                 {
                     $message = [
                         'status'    => FALSE,
                         'message'   => "data gagal dihapus"
                     ];
-                    $this->response($message, REST_Controller::HTTP_NOT_FOUND);
+                    $this->response($message, RestController::HTTP_NOT_FOUND);
                 }
             }
 
         } else {
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         }
     }
 }

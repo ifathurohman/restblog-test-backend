@@ -4,33 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e3d0d56a3cd41c7792bf86332b2a39a",
+    "content-hash": "6802f25aa6ba71d1c086f595214e40fe",
     "packages": [
         {
-            "name": "jakezatecky/array_group_by",
-            "version": "v1.1.0",
+            "name": "chriskacerguis/codeigniter-restserver",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jakezatecky/array_group_by.git",
-                "reference": "227f66c546ecb37d8cb7698a359d94c773ce49bc"
+                "url": "https://github.com/chriskacerguis/codeigniter-restserver.git",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jakezatecky/array_group_by/zipball/227f66c546ecb37d8cb7698a359d94c773ce49bc",
-                "reference": "227f66c546ecb37d8cb7698a359d94c773ce49bc",
+                "url": "https://api.github.com/repos/chriskacerguis/codeigniter-restserver/zipball/f386f4e0013daadaa213681a0a41af69aa81d9de",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de",
                 "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0.6"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/array_group_by.php"
-                ]
+                "psr-4": {
+                    "chriskacerguis\\RestServer\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -38,45 +32,77 @@
             ],
             "authors": [
                 {
-                    "name": "Jake Zatecky"
+                    "name": "Chris Kacerguis",
+                    "email": "chriskacerguis@gmail.com"
                 }
             ],
-            "description": "A function that groups/splits an array by the values of a given key or keys.",
-            "homepage": "https://github.com/jakezatecky/array_group_by",
-            "keywords": [
-                "array",
-                "array_group_by",
-                "array_key_split",
-                "group",
-                "split"
-            ],
+            "description": "CI Rest Server",
             "support": {
-                "issues": "https://github.com/jakezatecky/array_group_by/issues",
-                "source": "https://github.com/jakezatecky/array_group_by"
+                "issues": "https://github.com/chriskacerguis/codeigniter-restserver/issues",
+                "source": "https://github.com/chriskacerguis/codeigniter-restserver/tree/3.1.4"
             },
-            "time": "2017-10-07T18:22:35+00:00"
+            "time": "2022-02-24T18:02:52+00:00"
         },
         {
-            "name": "mcaskill/php-array-group-by",
-            "version": "1.0.0",
+            "name": "monolog/monolog",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://gist.github.com/mcaskill/baaee44487653e1afc0d",
-                "reference": "20aa76bbc63c0a83448db7d7b93af8006a5bb56f"
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c861fcba2ca29404dc9e617eedd9eff4616986b8",
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8",
+                "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^7.2",
+                "psr/log": "^1.0.1"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "elasticsearch/elasticsearch": "^6.0",
+                "graylog2/gelf-php": "^1.4.2",
+                "jakub-onderka/php-parallel-lint": "^0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpspec/prophecy": "^1.6.1",
+                "phpunit/phpunit": "^8.3",
+                "predis/predis": "^1.1",
+                "rollbar/rollbar": "^1.3",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mbstring": "Allow to work properly with unicode symbols",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
-                "files": [
-                    "Function.Array-Group-By.php"
-                ]
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -84,16 +110,73 @@
             ],
             "authors": [
                 {
-                    "name": "Chauncey McAskill",
-                    "email": "chauncey@mcaskill.ca",
-                    "homepage": "https://github.com/mcaskill"
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
                 }
             ],
-            "description": "Groups an array by a given key.",
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
             "keywords": [
-                "function"
+                "log",
+                "logging",
+                "psr-3"
             ],
-            "time": "2017-11-24T13:45:55+00:00"
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/2.0.2"
+            },
+            "time": "2019-12-20T14:22:59+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
+            "time": "2021-05-03T11:20:27+00:00"
         }
     ],
     "packages-dev": [],
@@ -102,9 +185,7 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "php": ">=5.4.0"
-    },
+    "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }

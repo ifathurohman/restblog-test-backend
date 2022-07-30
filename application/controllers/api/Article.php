@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require APPPATH . '/libraries/REST_Controller.php';
+use chriskacerguis\RestServer\RestController;
 
-class Article extends REST_Controller
+class Article extends RestController
 {
     public function __construct()
     {
@@ -34,16 +34,16 @@ class Article extends REST_Controller
                 $this->response([
                     'status'    => true,
                     'data'      => $article
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             else:
                  $this->response([
                     'status'    => true,
                     'message'   => "data tidak ditemukan"
-                ],REST_Controller::HTTP_NOT_FOUND);
+                ],RestController::HTTP_NOT_FOUND);
             endif;         
 
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
     }
 
@@ -73,42 +73,42 @@ class Article extends REST_Controller
                 $this->response([
                     'status'    => false,
                     'message'   => "Category tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif(!$ck_category):
                 $this->response([
                     'status'    => false,
                     'message'   => "Id category tidak ditemukan"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($title == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Judul tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($ck_title):
                 $this->response([
                     'status'    => false,
                     'message'   => "Judul sudah digunakan"
-                ],REST_Controller::HTTP_BAD_REQUEST);
+                ],RestController::HTTP_BAD_REQUEST);
             elseif($slug == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "slug tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($ck_slug):
                 $this->response([
                     'status'    => false,
                     'message'   => "slug sudah digunakan"
-                ],REST_Controller::HTTP_BAD_REQUEST);
+                ],RestController::HTTP_BAD_REQUEST);
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "body tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($image == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "image tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
@@ -127,10 +127,10 @@ class Article extends REST_Controller
                     'status'    => true,
                     'message'   => "data berhasil ditambahkan",
                     'data'      => $data
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             endif;
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
 
     }
@@ -155,27 +155,27 @@ class Article extends REST_Controller
                 $this->response([
                     'status'    => false,
                     'message'   => "Id tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($category_id == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Category tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($title == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Judul tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($slug == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Slug tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($body == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "body tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             else:
                 
                 $data = array(
@@ -192,11 +192,11 @@ class Article extends REST_Controller
                     'status'    => true,
                     'message'   => "data berhasil diubah",
                     'data'      => $data
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             endif;
 
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
     }
 
@@ -213,7 +213,7 @@ class Article extends REST_Controller
             
             if (empty($id) AND !is_numeric($id))
             {
-                $this->response(['status' => FALSE, 'message' => 'Invalid Article ID' ], REST_Controller::HTTP_NOT_FOUND);
+                $this->response(['status' => FALSE, 'message' => 'Invalid Article ID' ], RestController::HTTP_NOT_FOUND);
             }
             else
             {
@@ -230,19 +230,19 @@ class Article extends REST_Controller
                         'status'    => true,
                         'message'   => "data berhasil dihapus"
                     ];
-                    $this->response($message, REST_Controller::HTTP_OK);
+                    $this->response($message, RestController::HTTP_OK);
                 } else
                 {
                     $message = [
                         'status'    => FALSE,
                         'message'   => "data gagal dihapus"
                     ];
-                    $this->response($message, REST_Controller::HTTP_NOT_FOUND);
+                    $this->response($message, RestController::HTTP_NOT_FOUND);
                 }
             }
 
         } else {
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         }
     }
 

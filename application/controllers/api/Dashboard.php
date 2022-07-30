@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require APPPATH . '/libraries/REST_Controller.php';
+use chriskacerguis\RestServer\RestController;
 
-class Dashboard extends REST_Controller
+class Dashboard extends RestController
 {
     public function __construct()
     {
@@ -36,10 +36,10 @@ class Dashboard extends REST_Controller
                 "recordsTotal" 		=> $this->dashboard->count_all(),
                 "recordsFiltered" 	=> $this->dashboard->count_filtered(),
                 "data" 				=> $data,
-            ],REST_Controller::HTTP_OK);
+            ],RestController::HTTP_OK);
 
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
 
     }

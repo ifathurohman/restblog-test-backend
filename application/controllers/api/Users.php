@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require APPPATH . '/libraries/REST_Controller.php';
+use chriskacerguis\RestServer\RestController;
 
-class Users extends REST_Controller
+class Users extends RestController
 {
     public function __construct()
     {
@@ -36,32 +36,32 @@ class Users extends REST_Controller
             $this->response([
                 'status'    => false,
                 'message'   => "username tidak boleh kosong"
-            ],REST_Controller::HTTP_BAD_REQUEST);      
+            ],RestController::HTTP_BAD_REQUEST);      
         elseif($ck_username):
             $this->response([
                 'status'    => false,
                 'message'   => "username sudah digunakan"
-            ],REST_Controller::HTTP_BAD_REQUEST);
+            ],RestController::HTTP_BAD_REQUEST);
         elseif($password == ''):
             $this->response([
                 'status'    => false,
                 'message'   => "password tidak boleh kosong"
-            ],REST_Controller::HTTP_BAD_REQUEST);   
+            ],RestController::HTTP_BAD_REQUEST);   
         elseif($email == ''):
             $this->response([
                 'status'    => false,
                 'message'   => "email tidak boleh kosong"
-            ],REST_Controller::HTTP_BAD_REQUEST);   
+            ],RestController::HTTP_BAD_REQUEST);   
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)):  
             $this->response([
                 'status'    => false,
                 'message'   => "Gunakan email yang valid"
-            ],REST_Controller::HTTP_BAD_REQUEST);
+            ],RestController::HTTP_BAD_REQUEST);
         elseif($ck_email):
             $this->response([
                 'status'    => false,
                 'message'   => "email sudah digunakan"
-            ],REST_Controller::HTTP_BAD_REQUEST);
+            ],RestController::HTTP_BAD_REQUEST);
         else:
             $password         = $this->main->create_password($password);
             $data['password'] = $password;
@@ -70,7 +70,7 @@ class Users extends REST_Controller
                 'status'    => true,
                 'message'   => "data berhasil ditambahkan",
                 'data'      => $data
-            ],REST_Controller::HTTP_OK);
+            ],RestController::HTTP_OK);
         endif;
 
     }
@@ -98,22 +98,22 @@ class Users extends REST_Controller
             $this->response([
                 'status'    => false,
                 'message'   => "username tidak boleh kosong"
-            ],REST_Controller::HTTP_BAD_REQUEST);
+            ],RestController::HTTP_BAD_REQUEST);
         elseif(!$ck_username):
             $this->response([
                 'status'    => false,
                 'message'   => "username tidak ditemukan"
-            ],REST_Controller::HTTP_BAD_REQUEST);  
+            ],RestController::HTTP_BAD_REQUEST);  
         elseif($password == ''):
             $this->response([
                 'status'    => false,
                 'message'   => "password tidak boleh kosong"
-            ],REST_Controller::HTTP_BAD_REQUEST);
+            ],RestController::HTTP_BAD_REQUEST);
         elseif(!$ck_password):
             $this->response([
                 'status'    => false,
                 'message'   => "password tidak sesuai"
-            ],REST_Controller::HTTP_BAD_REQUEST);  
+            ],RestController::HTTP_BAD_REQUEST);  
         else:
 
             $this->load->library('Authorization_Token');
@@ -143,7 +143,7 @@ class Users extends REST_Controller
                 'message'   => "login berhasil",
                 'data'      => $data_login,
             ];
-            $this->response($message, REST_Controller::HTTP_OK);
+            $this->response($message, RestController::HTTP_OK);
         endif;
         
     }
@@ -166,22 +166,22 @@ class Users extends REST_Controller
                 $this->response([
                     'status'    => false,
                     'message'   => "username tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);         
+                ],RestController::HTTP_BAD_REQUEST);         
             elseif($password == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "password tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($confirmpassword == ''):
                 $this->response([
                     'status'    => false,
                     'message'   => "Confirm password tidak boleh kosong"
-                ],REST_Controller::HTTP_BAD_REQUEST);      
+                ],RestController::HTTP_BAD_REQUEST);      
             elseif($password != $confirmpassword):  
                 $this->response([
                     'status'    => false,
                     'message'   => "password tidak sesuai"
-                ],REST_Controller::HTTP_BAD_REQUEST);
+                ],RestController::HTTP_BAD_REQUEST);
             else:
 
                 $password         = $this->main->create_password($password);
@@ -192,10 +192,10 @@ class Users extends REST_Controller
                 $this->response([
                     'status'    => true,
                     'message'   => "data berhasil diubah",
-                ],REST_Controller::HTTP_OK);
+                ],RestController::HTTP_OK);
             endif;
         else:
-            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], RestController::HTTP_NOT_FOUND);
         endif;
 
     }
