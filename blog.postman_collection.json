@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f82da33e-974d-47c5-af64-3bddb1282130",
-		"name": "New Collection",
+		"_postman_id": "8180cdb5-d975-4ba7-8b2a-518c863bf95a",
+		"name": "Rest Blog",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13850295"
 	},
@@ -18,36 +18,36 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Name",
-									"value": "ilham",
+									"key": "name",
+									"value": "joko",
 									"type": "text"
 								},
 								{
-									"key": "Username",
-									"value": "ilham",
+									"key": "username",
+									"value": "joko",
 									"type": "text"
 								},
 								{
-									"key": "Email",
-									"value": "test@gmail.com",
+									"key": "email",
+									"value": "joko@gmail.com",
 									"type": "text"
 								},
 								{
-									"key": "Password",
+									"key": "password",
 									"value": "12345",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/register",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"register"
 							]
@@ -62,7 +62,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODU2Mn0._zZl2buIBr4-lbQsRwNSJHtb4PxQqtWZ2nNBfniFWUA",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTE2MTQ5MH0.wiRIlCf_FcZYKYHYxYJPrMcpbCHLmGbj8bqoy6EhSqk",
 								"type": "text"
 							}
 						],
@@ -70,31 +70,31 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Username",
-									"value": "ilham",
+									"key": "username",
+									"value": "joko",
 									"type": "text"
 								},
 								{
-									"key": "Password",
-									"value": "12345678",
+									"key": "password",
+									"value": "123456",
 									"type": "text"
 								},
 								{
-									"key": "Confirm_password",
-									"value": "12345678",
+									"key": "confirm_password",
+									"value": "123456",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/reset_password",
+							"raw": "http://localhost:8080/test-rest/api/reset_password",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ci-restserver-master",
+								"test-rest",
 								"api",
 								"reset_password"
 							]
@@ -111,26 +111,26 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Username",
-									"value": "ilham",
+									"key": "username",
+									"value": "joko",
 									"type": "text"
 								},
 								{
-									"key": "Password",
-									"value": "12345678",
+									"key": "password",
+									"value": "123456",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/login",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"login"
 							]
@@ -150,26 +150,26 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODcxOH0.c1aeJKtml6mVaMAekvLiXxeHHB9hfS34zUj9ITZyhRo",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTE2MzEzN30.9BMjiuBseKGF91AYSboLTKuz9hIyEiru9sQJv5fJNHQ",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/article/get?Id=2",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/article/get?id=2",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"article",
 								"get"
 							],
 							"query": [
 								{
-									"key": "Id",
+									"key": "id",
 									"value": "2"
 								}
 							]
@@ -184,7 +184,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0ODcxOH0.c1aeJKtml6mVaMAekvLiXxeHHB9hfS34zUj9ITZyhRo",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTE2MzEzN30.9BMjiuBseKGF91AYSboLTKuz9hIyEiru9sQJv5fJNHQ",
 								"type": "text"
 							}
 						],
@@ -192,36 +192,36 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Category_id",
-									"value": "3",
+									"key": "category_id",
+									"value": "1",
 									"type": "text"
 								},
 								{
-									"key": "Title",
+									"key": "title",
 									"value": "Lorem Ipsum 3",
 									"type": "text"
 								},
 								{
-									"key": "Body",
+									"key": "body",
 									"value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 									"type": "text"
 								},
 								{
-									"key": "Post_image",
+									"key": "post_image",
 									"type": "file",
 									"src": "/C:/Users/Asus/Pictures/mutasi rekening pln prepaid.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/article/create",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/article/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"article",
 								"create"
@@ -267,14 +267,14 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/article/update",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/article/update",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"article",
 								"update"
@@ -299,14 +299,14 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/article/3/delete",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/article/3/delete",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"article",
 								"3",
@@ -333,14 +333,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/category/get",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/category/get",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"category",
 								"get"
@@ -356,19 +356,29 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTA2NzA0MX0.TuCsT6JKNN5uDytsj_HUYfnj1yDae3oVdLufwYHUnuU",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test123",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/category/create",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/category/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"category",
 								"create"
@@ -404,14 +414,14 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/category/update",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/category/update",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"category",
 								"update"
@@ -432,14 +442,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/category/1/delete",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/category/1/delete",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"category",
 								"1",
@@ -466,14 +476,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/comments/get",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/comments/get",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"comments",
 								"get"
@@ -489,7 +499,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiaWxoYW0iLCJ1c2VybmFtZSI6ImlsaGFtIiwic3RhdHVzIjoiMCIsInVzZXJhZGQiOiJpbGhhbSIsImRhdGVhZGQiOiIyMDIyLTA3LTIzIDIzOjE5OjM0IiwidGltZSI6MTY1ODY0OTkwN30.hpVNeoQemcU2adBjR0BqKB_uxud3-HyecU_KVxaoQr8",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTA2NzA0MX0.TuCsT6JKNN5uDytsj_HUYfnj1yDae3oVdLufwYHUnuU",
 								"type": "text"
 							}
 						],
@@ -497,36 +507,36 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "Post_id",
+									"key": "post_id",
 									"value": "1",
 									"type": "text"
 								},
 								{
-									"key": "Name",
+									"key": "name",
 									"value": "asemmm",
 									"type": "text"
 								},
 								{
-									"key": "Email",
+									"key": "email",
 									"value": "test@gmail.com",
 									"type": "text"
 								},
 								{
-									"key": "Body",
+									"key": "body",
 									"value": "hasgdhasdgsahjdsajd",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/comments/create",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/comments/create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"comments",
 								"create"
@@ -538,8 +548,22 @@
 				{
 					"name": "Update Comments",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://restblog-test-backend.herokuapp.com/api/comments/update",
+							"protocol": "https",
+							"host": [
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"comments",
+								"update"
+							]
+						}
 					},
 					"response": []
 				},
@@ -555,14 +579,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ci-restserver-master/api/comments/1/delete",
-							"protocol": "http",
+							"raw": "https://restblog-test-backend.herokuapp.com/api/comments/1/delete",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
 							],
-							"port": "8080",
 							"path": [
-								"ci-restserver-master",
 								"api",
 								"comments",
 								"1",
@@ -581,7 +605,26 @@
 					"name": "Dashboard",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYW1lIjoiam9rbyIsInVzZXJuYW1lIjoiam9rbyIsInN0YXR1cyI6IjAiLCJ1c2VyYWRkIjoiam9rbyIsImRhdGVhZGQiOiIyMDIyLTA3LTI5IDEwOjU2OjI5IiwidGltZSI6MTY1OTA2NzA0MX0.TuCsT6JKNN5uDytsj_HUYfnj1yDae3oVdLufwYHUnuU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://restblog-test-backend.herokuapp.com/api/dashboard",
+							"protocol": "https",
+							"host": [
+								"restblog-test-backend",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"dashboard"
+							]
+						}
 					},
 					"response": []
 				}
