@@ -6,7 +6,7 @@
 
 <http://restblog-test-backend.herokuapp.com/api/{"Endpoint"}>
 
-[Download Collection](blog.postman_collection.json)
+[Download Collection](files/blog.postman_collection.json)
 
 ### User
 
