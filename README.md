@@ -8,6 +8,9 @@
 
 [Download Collection](blog.postman_collection.json)
 
+## OpenAPI
+[OpenAPI Postman](https://documenter.getpostman.com/view/13850295/UzdzUm5H) 
+
 ### User
 
 | Methods | Endpoint | Description | Authentication  |
